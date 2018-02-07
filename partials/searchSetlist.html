@@ -1,7 +1,8 @@
 <!-- Div that outputs search bar/ passes value to make call to get data back  -->
 <div>
+    <h3>Search By Date</h3>
     <input type="text" ng-model="searchForShowByDate">
-    <button ng-click="searchByDate()">Search By Date YYYY/MM/DD</button>
+    <button ng-click="searchByDate()">YYYY/MM/DD</button>
     <br>
     <p>{{venue.name}}</p>
 </div>
@@ -27,3 +28,23 @@
         <button ng-click="addSeenShow()">Add Seen Shows</button>
     </div>
 </div>
+
+<!-- div that has input search in a drop down by era 3.0/2.0/1.0 -->
+<div>
+    <h3>Search By Era</h3>
+    <select ng-model="searchForShowByEra" name="phishEras">
+        <option value="3.0">3.0</option>
+        <option value="2.0">2.0</option>
+        <option value="1.0" selected>1.0</option>
+    </select>
+    <br>
+    <br>
+    <input ng-click="searchByEra()" type="submit">
+    <!-- output era dates -->
+    <div ng-model="searchForShowsByYears">
+    <ul >
+       <li ng-click="searchShowsByYear()" ng-repeat="eraDate in eraDates">{{eraDate}}</li>
+    </ul>
+    </div>
+</div>
+
