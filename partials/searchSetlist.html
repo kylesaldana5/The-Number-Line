@@ -1,0 +1,29 @@
+<!-- Div that outputs search bar/ passes value to make call to get data back  -->
+<div>
+    <input type="text" ng-model="searchForShowByDate">
+    <button ng-click="searchByDate()">Search By Date YYYY/MM/DD</button>
+    <br>
+    <p>{{venue.name}}</p>
+</div>
+
+<!-- outputs data/ songs that were played at the show user's searched -->
+<div ng-show="mustShowButton">
+    <div>
+        <div>
+            <h3>Set 1</h3>
+            <hr>
+            <br>
+            <span ng-repeat="song in songs | filter:{set:'1'} ">{{song.title}}</span>
+        </div>
+        <div>
+            <h3>Set 2</h3>
+            <hr>
+            <br>
+            <span ng-repeat="song in songs | filter:{set:'2'} ">{{song.title}}</span>
+        </div>
+    </div>
+    <div>
+        <br>
+        <button ng-click="addSeenShow()">Add Seen Shows</button>
+    </div>
+</div>

@@ -27,7 +27,8 @@ angular.module("theNumberLine", ["ngRoute"])
             })
             .when('/setlists', {
                 templateUrl: "partials/searchSetlist.html",
-                controller: "searchSetlistCtrl"
+                controller: "searchSetlistCtrl",
+                resolve: {isIn}
             })
             .otherwise("/login");
     })
