@@ -36,7 +36,12 @@ angular.module("theNumberLine").controller("setlistsByYearCtrl", function ($scop
         FbFactory.addShow($scope.showObject);
     };
 
+    // function that deletes show from users collection in fire base 
+    $scope.deleteShow = () =>{
+        FbFactory.deleteShow($scope.showObject);
+    };
     
+        
 });
 
 
