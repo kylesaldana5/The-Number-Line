@@ -25,10 +25,15 @@ angular.module("theNumberLine", ["ngRoute"])
                 templateUrl: "partials/login.html",
                 controller: "loginCtrl"
             })
+            .when('/setlists', {
+                templateUrl: "partials/searchSetlist.html",
+                controller: "searchSetlistCtrl",
+                resolve: {isIn}
+            })
             .otherwise("/login");
     })
 
-    // method getting creds from values 
+    // method getting creds from firebase values 
     .run(FBCreds => {
     let creds = FBCreds;
     let authConfig = {

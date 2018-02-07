@@ -6,7 +6,7 @@ angular.module("theNumberLine").controller("loginCtrl", function ($scope, $windo
     $scope.login = () =>{
         authFactory.googleLogin()
             .then((user) => {
-            // will need to use $window or / $location here to derict after they log in
+                $window.location.href = '#!/setlists';
             });
     };
 
