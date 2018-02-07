@@ -36,7 +36,7 @@ angular.module("theNumberLine").factory("setlistFactory", function ($q, $http) {
     let getShowByYear = (year) =>{
         return $q((resolve, reject) => {
             $http
-                .get(`http://phish.in/api/v1/years/${+year}`)
+                .get(`http://phish.in/api/v1/years/${year}`)
                 .then((shows) => {
                     resolve(shows);
                 })

@@ -30,6 +30,12 @@ angular.module("theNumberLine", ["ngRoute"])
                 controller: "searchSetlistCtrl",
                 resolve: {isIn}
             })
+            .when('/setlists/:yearValue', {
+                templateUrl: 'partials/setlistsByYear.html',
+                controller: 'setlistsByYearCtrl',
+                resolve: { isIn }
+
+            })
             .otherwise("/login");
     })
 

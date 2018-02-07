@@ -4,19 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular-route.js"></script>
-    <title>The Number Line</title>
-</head>
-<body ng-app="theNumberLine">
+    <!-- angular  -->
+     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular-route.js"></script>
+     <title>The Number Line</title>
+    </head>
+    <body ng-app="theNumberLine">
+        
+        <div ng-include="partials/navbar.html"></div>
+        <div ng-view></div>
+        
     
-    <div>
-        <div ng-view>
-        </div>
-    </div>
-
-</body>
-<script type="text/javascript" src="node_modules/firebase/firebase.js"></script>
-<!-- dist bundle -->
-<script src="dist/project.js"></script>
-</html>
+    </body>
+    <!-- firebase -->
+    <script type="text/javascript" src="node_modules/firebase/firebase.js"></script>
+    <!-- dist bundle -->
+    <script src="dist/project.js"></script>
+    </html>
+    
