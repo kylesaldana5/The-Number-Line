@@ -1,5 +1,23 @@
 <div ng-init="showYear()">
     <ul>
-        <li ng-model="showsInYears" ng-click="showsThisYear(show.date)" ng-repeat="show in shows">{{show.date}}</li>
+        <li ng-model="showsInYears" ng-click="showsThisYear(show.date)" ng-repeat="show in shows">{{show.date}}
+        <div ng-show=" show.id === showObject.showId">
+            <div>
+                <div>
+                    <h3>Set 1</h3>
+                    <hr>
+                    <br>
+                    <span ng-repeat="song in songs | filter:{set:'1'} ">{{song.title}} |  </span>
+                </div>
+                <div>
+                    <h3>Set 2</h3>
+                    <hr>
+                    <br>
+                    <span ng-repeat="song in songs | filter:{set:'2'} ">{{song.title}}  | </span>
+                </div>
+            </div>
+            <div>
+        
+        </div>
     </ul>
 </div>
