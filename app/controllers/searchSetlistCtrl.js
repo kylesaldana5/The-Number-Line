@@ -1,7 +1,7 @@
 "use strict";
 
 // controller to search the specific show by date
-angular.module("theNumberLine").controller("searchSetlistCtrl", function ($scope, setlistFactory, FbFactory) {
+angular.module("theNumberLine").controller("searchSetlistCtrl", function ($scope, setlistFactory, FbFactory, $location) {
 
     // function that calls factory and gets shows by date(YYY-MM-DD)
     $scope.searchByDate = () => {
@@ -10,7 +10,6 @@ angular.module("theNumberLine").controller("searchSetlistCtrl", function ($scope
                 console.log('shows', shows.data);
                 $scope.songs = shows.data.data.tracks;
                 $scope.venue = shows.data.data.venue;
-                
                 $scope.mustShowButton = true;
                 $scope.showObject = {
                     showId: shows.data.data.id,
@@ -18,6 +17,7 @@ angular.module("theNumberLine").controller("searchSetlistCtrl", function ($scope
                 };
             });
     };
+                
 
     // function that call factory and gets shows by Era
     $scope.searchByEra = () => {
@@ -28,13 +28,8 @@ angular.module("theNumberLine").controller("searchSetlistCtrl", function ($scope
     };
 
     //  function that call factory to get shows by Year
-    $scope.searchShowsByYear = () =>{
-        // figure out why it isnt getting the value of the years eraDates ?
-        console.log('what is this', $scope.searchForShowsByYears);
-        setlistFactory.getShowByYear($scope.searchForShowsByYears)
-            .then((shows) =>{
-                console.log('shows year', shows );
-            });
+    $scope.rederictShowsByEra = (yearValue) =>{
+        $location.url(`/setlists/${yearValue}`);      
     };
         
                 

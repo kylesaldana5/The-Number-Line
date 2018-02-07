@@ -41,9 +41,9 @@
     <br>
     <input ng-click="searchByEra()" type="submit">
     <!-- output era dates -->
-    <div ng-model="searchForShowsByYears">
+    <div>
     <ul >
-       <li ng-click="searchShowsByYear()" ng-repeat="eraDate in eraDates">{{eraDate}}</li>
+       <li ng-model="searchForShowsByYears" ng-click="rederictShowsByEra(eraDate)" ng-repeat="eraDate in eraDates">{{eraDate}}</li>
     </ul>
     </div>
 </div>
