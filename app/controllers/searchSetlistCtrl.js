@@ -19,9 +19,30 @@ angular.module("theNumberLine").controller("searchSetlistCtrl", function ($scope
             });
     };
 
+    // function that call factory and gets shows by Era
+    $scope.searchByEra = () => {
+        setlistFactory.getEraData($scope.searchForShowByEra)
+            .then((shows) => {
+                $scope.eraDates = shows.data.data;
+            });
+    };
+
+    //  function that call factory to get shows by Year
+    $scope.searchShowsByYear = () =>{
+        // figure out why it isnt getting the value of the years eraDates ?
+        console.log('what is this', $scope.searchForShowsByYears);
+        setlistFactory.getShowByYear($scope.searchForShowsByYears)
+            .then((shows) =>{
+                console.log('shows year', shows );
+            });
+    };
+        
+                
+
     // function that pass the user id to the firbase factory to save, passes show id to firebase to store for user
     $scope.addSeenShow = () => {
         FbFactory.addShow($scope.showObject);
     };
 });
+
 
