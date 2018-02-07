@@ -1,7 +1,7 @@
 "use strict";
 
 // controller to get all years of a specific Era then break the years down into what shows were played that year
-angular.module("theNumberLine").controller("setlistsByYearCtrl", function ($scope, setlistFactory, $location, $routeParams) {
+angular.module("theNumberLine").controller("setlistsByYearCtrl", function ($scope, setlistFactory, FbFactory, $location, $routeParams) {
 
     // grabs the route params and sets it to get shows for that year
     let yearId = $routeParams.yearValue;
@@ -30,5 +30,13 @@ angular.module("theNumberLine").controller("setlistsByYearCtrl", function ($scop
                 };
             });
     };
+
+    // function that pass the user id to the firbase factory to save, passes show id to firebase to store for user
+    $scope.addSeenShow = () => {
+        FbFactory.addShow($scope.showObject);
+    };
+
+    
 });
+
 
