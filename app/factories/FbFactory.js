@@ -19,9 +19,23 @@ angular.module("theNumberLine").factory("FbFactory", (FBUrl, $q, $http, authFact
         return $q((resolve, reject) =>{
             $http
                 .get(`${FBUrl}/Shows.json?orderBy="userId"&equalTo="${authFactory.getCurrentUser()}"`)
-                .then((data) =>{
-                    console.log('data',data );
+                .then(({data}) =>{
+                    resolve(data);
+                })
+                .catch((err) =>{
+                    reject(err);
+                });
+        });
+    }
                     
+                    
+                    
+    // function that deletes a show from the users collection 
+    function deleteShow(fbKey) {
+        return $q((resolve, reject) =>{
+            $http
+                .delete(`${FBUrl}Shows/${fbKey}.json`)
+                .then((data) =>{
                     resolve(data);
                 })
                 .catch((err) =>{
@@ -30,19 +44,6 @@ angular.module("theNumberLine").factory("FbFactory", (FBUrl, $q, $http, authFact
         });
     }
     
-    // function that deletes a show from the users collection 
-    function deleteShow(id) {
-        return $q((resolve, reject) =>{
-            $http
-                .delete(`${FBUrl}Shows/${id}.json`)
-                .then((data) =>{
-                    resolve(data);
-                })
-                .catch((err) =>{
-                    reject(err);
-                });
-        });
-    }
     return { addShow, deleteShow, getUserShows };
 });
 
