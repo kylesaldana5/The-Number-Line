@@ -16,6 +16,20 @@ angular.module("theNumberLine").factory("setlistFactory", function ($q, $http) {
         });
     };
 
+    //  API call to PhishIn to get shows by venue
+    let getVenueData = (venue) => {
+        return $q((resolve, reject) => {
+            $http
+                .get(`http://phish.in/api/v1/venues/${venue}`)
+                .then((shows) => {
+                    resolve(shows);
+                });
+
+        }).catch((error) => {
+            // reject(error); why is this throwing js hint error
+        });
+    };
+
     //  API call to PhishIn to get shows by era
     let getEraData = (era) => {
         return $q((resolve, reject) => {
@@ -28,7 +42,7 @@ angular.module("theNumberLine").factory("setlistFactory", function ($q, $http) {
                 });
 
         }).catch((error) => {
-            // reject(error);  why is throwing a js hint error?
+            // reject(error);  why is this throwing js hint error?
         });
     };
 
@@ -46,5 +60,19 @@ angular.module("theNumberLine").factory("setlistFactory", function ($q, $http) {
         });
     };
 
-    return { getShowDataByDate, getEraData, getShowByYear };
+    // API call to PhishIn to get shows by Id
+    let getShowById = (id) => {
+        return $q((resolve, reject) => {
+            $http
+                .get(`http://phish.in/api/v1/shows/${id}`)
+                .then((shows) => {
+                    resolve(shows);
+                })
+                .catch((error) => {
+                    reject(error);
+                });
+        });
+    };
+
+    return { getShowDataByDate, getEraData, getVenueData, getShowByYear, getShowById  };
 });

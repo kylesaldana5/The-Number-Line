@@ -17,7 +17,15 @@ angular.module("theNumberLine").controller("searchSetlistCtrl", function ($scope
                 };
             });
     };
-                
+    
+    // need to figure out how to make this work with out searching for slug
+    // function that calls factory and gets shows by venue 
+    $scope.searchByVenue = () => {
+        setlistFactory.getVenueData($scope.searchForShowByVenue)
+            .then((shows) => {
+                console.log('venue dates', shows.data);
+            });
+    };
 
     // function that call factory and gets shows by Era
     $scope.searchByEra = () => {

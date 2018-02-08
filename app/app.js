@@ -34,10 +34,15 @@ angular.module("theNumberLine", ["ngRoute"])
                 templateUrl: 'partials/setlistsByYear.html',
                 controller: 'setlistsByYearCtrl',
                 resolve: { isIn }
-
+            })
+            .when('/user', {
+                templateUrl: 'partials/userShows.html',
+                controller: 'userShowsCtrl',
+                resolve: { isIn }
             })
             .otherwise("/login");
     })
+
 
     // method getting creds from firebase values 
     .run(FBCreds => {

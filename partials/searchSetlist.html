@@ -14,13 +14,13 @@
             <h3>Set 1</h3>
             <hr>
             <br>
-            <span ng-repeat="song in songs | filter:{set:'1'} ">{{song.title}}</span>
+            <span ng-repeat="song in songs | filter:{set:'1'} ">{{song.title}} | </span>
         </div>
         <div>
             <h3>Set 2</h3>
             <hr>
             <br>
-            <span ng-repeat="song in songs | filter:{set:'2'} ">{{song.title}}</span>
+            <span ng-repeat="song in songs | filter:{set:'2'} ">{{song.title}} | </span>
         </div>
     </div>
     <div>
@@ -46,5 +46,19 @@
        <li ng-model="searchForShowsByYears" ng-click="rederictShowsByEra(eraDate)" ng-repeat="eraDate in eraDates">{{eraDate}}</li>
     </ul>
     </div>
+</div>
+
+<!-- input show dates by venue search -->
+<div>
+    <h3>Search By Venue</h3>
+    <input type="text" ng-model="searchForShowByVenue">
+    <button ng-click="searchByVenue()">Search By Venue</button>
+
+    <!-- output venue dates -->
+    <ul>
+        <a href="">
+            <li ng-repeat="item in venueDates">{{item}}</li>
+        </a>
+    </ul>
 </div>
 
