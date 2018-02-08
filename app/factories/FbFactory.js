@@ -34,7 +34,7 @@ angular.module("theNumberLine").factory("FbFactory", (FBUrl, $q, $http, authFact
     function deleteShow(fbKey) {
         return $q((resolve, reject) =>{
             $http
-                .delete(`${FBUrl}Shows/${fbKey}.json`)
+                .delete(`${FBUrl}/Shows/${fbKey}.json`)
                 .then((data) =>{
                     resolve(data);
                 })
@@ -43,7 +43,23 @@ angular.module("theNumberLine").factory("FbFactory", (FBUrl, $q, $http, authFact
                 });
         });
     }
+
+    // function that patches show note from the users collection 
+    function addUserNote(noteObj) {
+        return $q((resolve, reject) => {
+            $http
+                .post(`${FBUrl}/notes.json`,
+                JSON.stringify(noteObj))
+                .then(showNote => {
+                    resolve(showNote);
+                })
+                
+                .catch((err) => {
+                    reject(err);
+                });
+        });
+    }
     
-    return { addShow, deleteShow, getUserShows };
+    return { addShow, deleteShow, getUserShows, addUserNote  };
 });
 
