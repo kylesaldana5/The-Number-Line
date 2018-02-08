@@ -3,8 +3,12 @@
 // controller to display all the shows a user has added
 angular.module("theNumberLine").controller("userShowsCtrl", function ($scope, setlistFactory, $q, FbFactory, $location, $routeParams, authFactory) {
 
+
+
     // function that gets user saved shows
-    $scope.userShows = () => {
+    let userShows = () => {
+        console.log('is this working');
+
         FbFactory.getUserShows()
             .then((shows) => {
 
@@ -37,19 +41,54 @@ angular.module("theNumberLine").controller("userShowsCtrl", function ($scope, se
 
                         }
                         $scope.sortedUserShows = finalArr;
-                        console.log('sorted shows', $scope.sortedUserShows.fbItemKey);
+                        console.log('sorted shows', $scope.sortedUserShows);
 
                     });
 
             });
     };
 
+    // keeps the user logged in so the data isnt lost when the page is refreshed
+    firebase.auth().onAuthStateChanged((user) => {
+        userShows();
+    });
+
+    // for addNote function gives child scope to the object.. must have for ng-if to work
+    $scope.userNote = {
+        note: null
+    };
+
+    // function that allows user to add and edit a note about the show
+    $scope.addNote = (fbItemKey) => {
+        let newNote = {
+            showId: fbItemKey,
+            note: $scope.userNote.note
+        };
+        FbFactory.addUserNote(newNote);
+    };
+
     // function that deletes a users show from firebase
-    $scope.removeShow = () =>{
-        FbFactory.deleteShow($scope.sortedUserShows.fbItemKey);
+    $scope.removeShow = (key) => {
+        FbFactory.deleteShow(key)
+            .catch((err) => {
+                console.log('err', err);
+
+            });
+
+    };
+
+    // function to show user shows when clicked on date /venue 
+    $scope.showDetails = (fbItemKey) => {
+        $scope.selectedShow = fbItemKey;
     };
 
 });
+
+
+
+
+
+
 
 
 
