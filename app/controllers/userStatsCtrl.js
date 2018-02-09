@@ -14,16 +14,24 @@ angular.module("theNumberLine").controller("userStatsCtrl", function ($scope, se
             let shows = Object.values(data);
             shows.forEach(show =>{
                 $scope.dateArr.push(show.date);
-                console.log('whole dates', $scope.dateArr);
             });
             
             // push each date individually into array and use moments to get month
+            for (let i = 0; i < $scope.dateArr.length; i++) {
+                let month = moment([$scope.dateArr[i]]).format("MMM");
+                // $scope.MMMArr = [];
+                // $scope.MMMArr.push(month);
+                
+            }
+            
             $scope.dateArr.forEach(date =>{
-                console.log('indiv', date );
+                    let month = moment([date]).format("MMM");
+                console.log('getting closesr', month );
+                
                 
             });
             
-            
+
             // makes new array with just the year to use for the line graph
             $scope.yearArr = [];
             shows.forEach(show => {
