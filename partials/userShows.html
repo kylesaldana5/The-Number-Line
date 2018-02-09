@@ -3,36 +3,45 @@
         <div ng-click="showDetails(sortedUserShow.fbItemKey)">
             <h3>{{sortedUserShow.showData.data.venue.name}}</h3>
             <h4>{{sortedUserShow.showData.data.date}}</h4>
-            <br>
+            <button class="btn btn-secondary" data-toggle="modal" data-target=".bd-example-modal-lg">See Setlist</button>
         </div>
-        <div ng-if="sortedUserShow.fbItemKey === selectedShow ">
-            <div>
-                <h3>Set 1</h3>
-                <hr>
-                <br>
-                <span ng-repeat="track in sortedUserShow.showData.data.tracks | filter:{set:'1'} ">{{track.title}} | </span>
-            </div>
-            <div>
-                <h3>Set 2</h3>
-                <hr>
-                <br>
-                <span ng-repeat="track in sortedUserShow.showData.data.tracks | filter:{set:'2'}"> {{track.title}} | </span>
-            </div>
-            <div>
-                <h3>Encore</h3>
-                <hr>
-                <br>
-                <span ng-repeat="track in sortedUserShow.showData.data.tracks | filter:{set:'E'} ">{{song.title}} | </span>
-            </div>
-            <div>
-                <br>
-                <button ng-click="removeShow(sortedUserShow.fbItemKey)">Remove Show</button>
-            </div>
-            <div>
-                <br>
-                <button ng-click="addNote(sortedUserShow.fbItemKey)">Add a Note</button>
-                <div>
-                    <textarea ng-model="userNote.note" cols="40" rows="5"></textarea>
+        <div ng-if="sortedUserShow.fbItemKey === selectedShow">
+            <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-setlist">
+                            <br>
+                            <h3>Set 1</h3>
+                            <hr>
+                            <br>
+                            <span  ng-repeat="track in sortedUserShow.showData.data.tracks | filter:{set:'1'} ">{{track.title}} | </span>
+                        </div>
+                        <div class="modal-setlist">
+                            <br>
+                            <h3>Set 2</h3>
+                            <hr>
+                            <br>
+                            <span ng-repeat="track in sortedUserShow.showData.data.tracks | filter:{set:'2'}"> {{track.title}} | </span>
+                        </div>
+                        <div class="modal-setlist">
+                            <br>
+                            <h3>Encore</h3>
+                            <hr>
+                            <br>
+                            <span ng-repeat="track in sortedUserShow.showData.data.tracks | filter:{set:'E'} ">{{track.title}} | </span>
+                        </div>
+                        <div>
+                            <br>
+                            <button class="btn btn-secondary" ng-click="removeShow(sortedUserShow.fbItemKey)">Remove Show</button>
+                        </div>
+                        <div>
+                            <br>
+                            <button class="btn btn-secondary" ng-click="addNote(sortedUserShow.fbItemKey)">Add a Note</button>
+                            <div>
+                                <textarea ng-model="userNote.note" cols="40" rows="5"></textarea>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
