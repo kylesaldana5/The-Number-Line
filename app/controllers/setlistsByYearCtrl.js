@@ -7,7 +7,7 @@ angular.module("theNumberLine").controller("setlistsByYearCtrl", function ($scop
     let yearId = $routeParams.yearValue;
 
     // function tha calls factoy to display the shows for the year the user clicked on via Era
-    $scope.showYear = () => {
+    let showYear = () => {
         setlistFactory.getShowByYear(yearId)
             .then((shows) => {
                 $scope.shows = shows.data.data;
@@ -15,17 +15,24 @@ angular.module("theNumberLine").controller("setlistsByYearCtrl", function ($scop
 
             });
     };
+     
+
+    // keeps the user logged in so the data isnt lost when the page is refreshed
+    firebase.auth().onAuthStateChanged((user) => {
+        showYear();
+    });
 
     // function that will get show detials for the paticular show that year
     $scope.showsThisYear = (years) => {
         setlistFactory.getShowDataByDate(years)
             .then((shows) => {
-                console.log('shows', shows.data.data);
                 $scope.songs = shows.data.data.tracks;
                 $scope.venue = shows.data.data.venue;
+                $scope.date = shows.data.data.date;
                 // $scope.mustShowButton = true;
                 $scope.showObject = {
                     showId: shows.data.data.id,
+                    date: $scope.date,
                     userId: firebase.auth().currentUser.uid
                 };
             });
@@ -34,11 +41,6 @@ angular.module("theNumberLine").controller("setlistsByYearCtrl", function ($scop
     // function that pass the user id to the firbase factory to save, passes show id to firebase to store for user
     $scope.addSeenShow = () => {
         FbFactory.addShow($scope.showObject);
-    };
-
-    // function that deletes show from users collection in fire base 
-    $scope.deleteShow = () =>{
-        FbFactory.deleteShow($scope.showObject);
     };
     
         

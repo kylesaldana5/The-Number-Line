@@ -1,58 +1,74 @@
 <!-- Div that outputs search bar/ passes value to make call to get data back  -->
-<div>
-    <h3>Search By Date</h3>
-    <input type="text" ng-model="searchForShowByDate">
-    <button ng-click="searchByDate()">YYYY/MM/DD</button>
-    <br>
-    <p>{{venue.name}}</p>
-</div>
+<form>
+    <div class="form-group">
+        <h3>Search By Date</h3>
+        <input ng-model="searchForShowByDate" type="txt" class="form-control" id="exampleFormControlInput1" placeholder="YYYY-MM-DD">
+        <br>
+        <button class="btn btn-secondary" data-toggle="modal" data-target=".bd-example-modal-lg" ng-click="searchByDate()">Search</button>
+    </div>
+</form>
 
 <!-- outputs data/ songs that were played at the show user's searched -->
-<div ng-show="mustShowButton">
-    <div>
-        <div>
-            <h3>Set 1</h3>
-            <hr>
-            <br>
-            <span ng-repeat="song in songs | filter:{set:'1'} ">{{song.title}} | </span>
+<!-- <div ng-show="mustShowButton"> Not sure if i need this now?-->
+<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div>
+                <div>
+                    <h3>{{venue.name}}</h3>
+                    <br>
+                    <h4>Set 1</h4>
+                    <hr>
+                    <br>
+                    <span ng-repeat="song in songs | filter:{set:'1'} ">{{song.title}} | </span>
+                </div>
+                <div>
+                    <br>
+                    <h4>Set 2</h4>
+                    <hr>
+                    <br>
+                    <span ng-repeat="song in songs | filter:{set:'2'} ">{{song.title}} | </span>
+                </div>
+                <div>
+                    <br>
+                    <h3>Encore</h3>
+                    <hr>
+                    <br>
+                    <span ng-repeat="song in songs | filter:{set:'E'} ">{{song.title}} | </span>
+                </div>
+            </div>
+            <div>
+                <br>
+                <button class="btn btn-secondary" ng-click="addSeenShow()">Add Seen Shows</button>
+            </div>
         </div>
-        <div>
-            <h3>Set 2</h3>
-            <hr>
-            <br>
-            <span ng-repeat="song in songs | filter:{set:'2'} ">{{song.title}} | </span>
-        </div>
-    </div>
-    <div>
-        <br>
-        <button ng-click="addSeenShow()">Add Seen Shows</button>
     </div>
 </div>
 
 <!-- div that has input search in a drop down by era 3.0/2.0/1.0 -->
 <div>
-    <h3>Search By Era</h3>
-    <select ng-model="searchForShowByEra" name="phishEras">
+    <h4>Search By Era</h4>
+    <select class="form-control" id="exampleFormControlSelect1" ng-model="searchForShowByEra" name="phishEras">
         <option value="3.0">3.0</option>
         <option value="2.0">2.0</option>
-        <option value="1.0" selected>1.0</option>
+        <option value="1.0">1.0</option>
     </select>
     <br>
-    <br>
-    <input ng-click="searchByEra()" type="submit">
+    <input class="btn btn-secondary" ng-click="searchByEra()" type="submit">
     <!-- output era dates -->
-    <div>
-    <ul >
-       <li ng-model="searchForShowsByYears" ng-click="rederictShowsByEra(eraDate)" ng-repeat="eraDate in eraDates">{{eraDate}}</li>
-    </ul>
+    <div class="list-group">
+        <a class="list-group-item list-group-item-action" g-model="searchForShowsByYears" ng-click="rederictShowsByEra(eraDate)"
+            ng-repeat="eraDate in eraDates">{{eraDate}}</a>
     </div>
 </div>
 
 <!-- input show dates by venue search -->
 <div>
-    <h3>Search By Venue</h3>
+    <h4>Search By Venue</h4>
     <input type="text" ng-model="searchForShowByVenue">
-    <button ng-click="searchByVenue()">Search By Venue</button>
+    <br>
+    <br>
+    <button class="btn btn-secondary" ng-click="searchByVenue()">Search By Venue</button>
 
     <!-- output venue dates -->
     <ul>
@@ -61,4 +77,3 @@
         </a>
     </ul>
 </div>
-

@@ -1,37 +1,44 @@
-<div ng-init="showYear()">
-    <!-- add a header that displays the Era above list of shows -->
-    <ul>
-        <li ng-model="showsInYears" ng-click="showsThisYear(show.date)" ng-repeat="show in shows">{{show.date}}
-            <div ng-show=" show.id === showObject.showId">
-                <div>
+<!-- add a header that displays the Era above list of shows -->
+
+<div ng-model="showsInYears" ng-repeat="show in shows">
+    <div>
+        <h3>{{show.location}}</h3>
+        <h4>{{show.date}}</h4>
+        <button ng-click="showsThisYear(show.date)" class="btn btn-secondary" data-toggle="modal" data-target=".bd-example-modal-lg">See Setlist</button>
+        <br>
+    </div>
+    <!-- <div ng-show=" show.id === showObject.showId">  Not sure if i need this now? -->
+        <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
                     <div>
-                        <h3>{{venue.name}}</h3>
-                        <br>
+                        <div class="modal-setlist">
+                            <h3>Set 1</h3>
+                            <hr>
+                            <br>
+                            <span ng-repeat="song in songs | filter:{set:'1'} ">{{song.title}} | </span>
+                        </div>
+                        <div class="modal-setlist">
+                            <br>
+                            <h3>Set 2</h3>
+                            <hr>
+                            <br>
+                            <span ng-repeat="song in songs | filter:{set:'2'} ">{{song.title}} | </span>
+                        </div>
+                        <div class="modal-setlist">
+                            <br>
+                            <h3>Encore</h3>
+                            <hr>
+                            <br>
+                            <span ng-repeat="song in songs | filter:{set:'E'} ">{{song.title}} | </span>
+                        </div>
                     </div>
                     <div>
-                        <h3>Set 1</h3>
-                        <hr>
                         <br>
-                        <span ng-repeat="song in songs | filter:{set:'1'} ">{{song.title}} | </span>
+                        <button class="btn btn-primary" ng-click="addSeenShow()">Add Seen Shows</button>
                     </div>
-                    <div>
-                        <h3>Set 2</h3>
-                        <hr>
-                        <br>
-                        <span ng-repeat="song in songs | filter:{set:'2'} ">{{song.title}} | </span>
-                    </div>
-                    <div>
-                        <h3>Encore</h3>
-                        <hr>
-                        <br>
-                        <span ng-repeat="song in songs | filter:{set:'E'} ">{{song.title}} | </span>
-                    </div>
-                </div>
-                <div>
-                    <br>
-                    <button ng-click="addSeenShow()">Add Seen Shows</button>
                 </div>
             </div>
-        </li>    
-    </ul>
+        </div>
+    </div>
 </div>

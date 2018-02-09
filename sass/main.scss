@@ -1,13 +1,18 @@
 body{
-    background-color: rgb(108, 125, 154) !important;
-       background: url('images/phish-joy.jpg') no-repeat center center fixed; 
-        -webkit-background-size: cover;
-        -moz-background-size: cover;
-        -o-background-size: cover;
-        background-size: cover;
+   background-color: adjust-hue($color: #80133b, $degrees: 0) !important;
 }
 
 .navHeader {
-    padding-left: 30em;
+    padding-left: 50em;
     color: rgba(158, 158, 158, 0.673)!important;
+}
+
+#lineContainer{
+    padding-top: 20px;
+    height: 400;
+    width: 800px;
+}
+
+.modal-setlist{
+    padding-left: 1em;
 }

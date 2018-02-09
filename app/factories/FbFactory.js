@@ -21,6 +21,7 @@ angular.module("theNumberLine").factory("FbFactory", (FBUrl, $q, $http, authFact
                 .get(`${FBUrl}/Shows.json?orderBy="userId"&equalTo="${authFactory.getCurrentUser()}"`)
                 .then(({data}) =>{
                     resolve(data);
+                    
                 })
                 .catch((err) =>{
                     reject(err);
