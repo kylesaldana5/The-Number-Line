@@ -1,5 +1,5 @@
 body{
-   background-color: adjust-hue($color: #80133b, $degrees: 0) !important;
+   background-color: adjust-hue($color: #131380, $degrees: 0) !important;
 }
 
 .navHeader {
@@ -8,6 +8,18 @@ body{
 }
 
 #lineContainer{
+    padding-top: 20px;
+    height: 400;
+    width: 800px;
+}
+
+#pieContainer{
+    padding-top: 20px;
+    height: 400;
+    width: 800px;
+}
+
+#barContainer{
     padding-top: 20px;
     height: 400;
     width: 800px;
