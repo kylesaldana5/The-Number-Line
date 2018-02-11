@@ -17,7 +17,7 @@ let isIn = (authFactory) => {
 };
 
 // routing for the app 
-angular.module("theNumberLine", ["ngRoute", "chart.js"])
+angular.module("theNumberLine", ["ngRoute", "chart.js", 'nvd3'])
     .constant("FBUrl", "https://the-number-line.firebaseio.com")
     .config($routeProvider => {
         $routeProvider
