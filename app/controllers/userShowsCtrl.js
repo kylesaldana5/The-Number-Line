@@ -1,7 +1,7 @@
 "use strict";
 
 // controller to display all the shows a user has added
-angular.module("theNumberLine").controller("userShowsCtrl", function ($scope, setlistFactory, $q, FbFactory, $location, $routeParams, $window, authFactory) {
+angular.module("theNumberLine").controller("userShowsCtrl", function ($scope, setlistFactory, $q, FbFactory, $location, $routeParams, $route, $window, authFactory) {
 
 
 
@@ -70,11 +70,15 @@ angular.module("theNumberLine").controller("userShowsCtrl", function ($scope, se
     // function that deletes a users show from firebase
     $scope.removeShow = (key) => {
         FbFactory.deleteShow(key)
+        .then(() =>{
+            $route.reload("#!/user");
+        })
             .catch((err) => {
                 console.log('err', err);
 
             });
-        $window.alert("Success! You've removed this show form your list");
+            $window.alert("Success! You've removed this show form your list");
+          
     };
 
     // function to show user shows when clicked on date /venue 

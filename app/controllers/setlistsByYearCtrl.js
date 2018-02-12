@@ -28,14 +28,17 @@ angular.module("theNumberLine").controller("setlistsByYearCtrl", function ($scop
             .then((shows) => {
                 $scope.songs = shows.data.data.tracks;
                 $scope.showId = shows.data.data.id;
-                console.log('when i click the show detials', $scope.showId);
                 $scope.venue = shows.data.data.venue;
                 $scope.date = shows.data.data.date;
-                // $scope.mustShowButton = true;
+                $scope.location = shows.data.data.venue.location;
+                console.log('is this the location?', $scope.location);
+                
+                // $scope.mustShowButton = true
                 $scope.showObject = {
                     showId: shows.data.data.id,
                     date: $scope.date,
-                    userId: firebase.auth().currentUser.uid
+                    userId: firebase.auth().currentUser.uid,
+                    venue: $scope.location
                 };
             });
     };

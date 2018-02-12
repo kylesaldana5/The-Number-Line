@@ -10,12 +10,5 @@ angular.module("theNumberLine").controller("loginCtrl", function ($scope, $windo
             });
     };
 
-    // function that fires of googlelogout
-    $scope.logout = () => {
-        authFactory.googleLogout()
-            .then((user) => {
-                console.log('User Logged out', user);
-                // will need to use $window or / $location here to derict after they log in
-            });
-    };
+
 });
