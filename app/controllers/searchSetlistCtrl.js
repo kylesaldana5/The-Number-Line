@@ -7,7 +7,6 @@ angular.module("theNumberLine").controller("searchSetlistCtrl", function ($scope
     $scope.searchByDate = () => {
         setlistFactory.getShowDataByDate($scope.searchForShowByDate)
             .then((shows) => {
-                console.log('shows', shows.data);
                 $scope.songs = shows.data.data.tracks;
                 $scope.venue = shows.data.data.venue;
                 $scope.mustShowButton = true;
@@ -23,7 +22,6 @@ angular.module("theNumberLine").controller("searchSetlistCtrl", function ($scope
     $scope.searchByVenue = () => {
         setlistFactory.getVenueData($scope.searchForShowByVenue)
             .then((shows) => {
-                console.log('venue dates', shows.data);
             });
     };
 

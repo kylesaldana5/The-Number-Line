@@ -1,7 +1,7 @@
 "use strict";
 
 // function to verify are logged if not they cannot route to other pages
-let isIn = (authFactory) => {
+let isIn = (authFactory, $location) => {
     new Promise((resolve, reject) => {
         authFactory.isLoggedIn().then(bool => {
             console.log("user???", bool);
@@ -10,6 +10,8 @@ let isIn = (authFactory) => {
                 resolve();
             } else {
                 console.log("Not Logged IN . Go away");
+                $location.path("/login");
+                
                 reject();
             }
         });
