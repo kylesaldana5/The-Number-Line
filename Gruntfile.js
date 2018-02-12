@@ -3,7 +3,7 @@ module.exports = function (grunt) {
         "angular-builder": {
             options: {
                 mainModule: "theNumberLine",
-                externalModules: ["ngRoute", "chart.js", 'nvd3']
+                externalModules: ["ngRoute", "chart.js", 'nvd3', "ngMap"]
             },
             app: {
                 src: "./app/**/*.js",
