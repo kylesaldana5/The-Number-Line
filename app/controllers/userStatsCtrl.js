@@ -84,7 +84,7 @@ angular.module("theNumberLine").controller("userStatsCtrl", function ($scope, se
                 let timesInDay = Object.values(countDay);
 
                  // Chart for what days youve seen phish the most / Bar Chart
-                $scope.colors = ['#DCDCDC'];
+                $scope.colors = ['#FDB45C'];
 
                 $scope.barLabels = keyDay;
                 $scope.barData = [

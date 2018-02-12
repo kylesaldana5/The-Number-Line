@@ -17,8 +17,8 @@
 </nav>
 
 <ng-map id="map" zoom="4" center="[37.0902, -95.7129]" on-center-changed="centerCustomMarker()">
-    <marker position="Lakeview Amphitheater, Syracuse, NY" on-click="showCustomMarker()"></marker>
-    <custom-marker id="foo" position="10 pennsylvania ave, washington DC" on-click="closeCustomMarker()">
+    <marker ng-repeat="show in shows" position="{{show.venue}}, {{show.location}}" on-click="showCustomMarker()"></marker>
+    <custom-marker id="foo" on-click="closeCustomMarker()">
         <div id="markerStyle">
             <br/> People call me as Mr. President.
             <br/> We live in this house.
