@@ -1,13 +1,12 @@
 "use strict";
 
 // controller to display all the shows a user has added
-angular.module("theNumberLine").controller("userShowsCtrl", function ($scope, setlistFactory, $q, FbFactory, $location, $routeParams, authFactory) {
+angular.module("theNumberLine").controller("userShowsCtrl", function ($scope, setlistFactory, $q, FbFactory, $location, $routeParams, $window, authFactory) {
 
 
 
     // function that gets user saved shows
     let userShows = () => {
-        console.log('is this working');
 
         FbFactory.getUserShows()
             .then((shows) => {
@@ -65,6 +64,7 @@ angular.module("theNumberLine").controller("userShowsCtrl", function ($scope, se
             note: $scope.userNote.note
         };
         FbFactory.addUserNote(newNote);
+        $window.alert("Success! You've added a note");
     };
 
     // function that deletes a users show from firebase
@@ -74,11 +74,12 @@ angular.module("theNumberLine").controller("userShowsCtrl", function ($scope, se
                 console.log('err', err);
 
             });
-
+        $window.alert("Success! You've removed this show form your list");
     };
 
     // function to show user shows when clicked on date /venue 
     $scope.showDetails = (fbItemKey) => {
+        
         $scope.selectedShow = fbItemKey;
     };
 

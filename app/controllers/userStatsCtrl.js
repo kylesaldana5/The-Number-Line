@@ -25,7 +25,7 @@ angular.module("theNumberLine").controller("userStatsCtrl", function ($scope, se
 
                 });
 
-                // use lo dash to combine arrays into obj then use obj.val to push into seperate arr to pash into month pie char
+                // use lo dash to combine arrays into obj then use obj.val / obj.key to push into seperate arr to pass into month pie char
                 let countMomentMonths = _.countBy($scope.momentMonthsArr);
                 let keyMonths = Object.keys(countMomentMonths);
                 let timesInMonth = Object.values(countMomentMonths);
@@ -71,6 +71,34 @@ angular.module("theNumberLine").controller("userStatsCtrl", function ($scope, se
 
                 });
 
+                // makes new array with just the days of the week / for bar graph 
+                $scope.dayArr = [];
+                $scope.dateArr.forEach(date =>{
+                    let week = moment(date).format('dddd');
+                    $scope.dayArr.push(week); 
+                });
+                
+                 // use lo dash to combine arrays into obj then use obj.val / obj.key to push into seperate arr to pass into week bar char
+                let countDay = _.countBy($scope.dayArr);
+                let keyDay = Object.keys(countDay);
+                let timesInDay = Object.values(countDay);
+
+                 // Chart for what days youve seen phish the most / Bar Chart
+                $scope.colors = ['#DCDCDC'];
+
+                $scope.barLabels = keyDay;
+                $scope.barData = [
+                    timesInDay
+                ];
+                $scope.barDatasetOverride = [
+                    {
+                        label: "Bar chart",
+                        borderWidth: 1,
+                        type: 'bar'
+                    }
+                ];
+                
+                
             });
     };
 

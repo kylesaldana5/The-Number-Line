@@ -1,5 +1,5 @@
 body{
-   background-color: adjust-hue($color: #80133b, $degrees: 0) !important;
+   background-color: adjust-hue($color: #131380, $degrees: 0) !important;
 }
 
 .navHeader {
@@ -7,12 +7,58 @@ body{
     color: rgba(158, 158, 158, 0.673)!important;
 }
 
+.modal-setlist{
+    padding-left: 1em;
+}
+
+// Graph Css
 #lineContainer{
     padding-top: 20px;
     height: 400;
     width: 800px;
 }
 
-.modal-setlist{
-    padding-left: 1em;
+#pieContainer{
+    padding-top: 20px;
+    height: 400;
+    width: 800px;
 }
+
+#barContainer{
+    padding-top: 20px;
+    height: 400;
+    width: 800px;
+}
+
+// Google Maps Css
+#map{
+    height:500px; 
+    width:500px; 
+    box-shadow: 3px 3px 10px gray;
+    }
+#repeat{ 
+     display: inline;
+     }
+#country_container { 
+     width: 1000px; 
+     margin: 13px 3px 3px 0px; 
+     text-align: center; 
+     width: 85px; 
+     padding: 4px; 
+     display: inline-table;  
+     color: white; 
+     background-color: black; 
+     font-size: 12px; 
+     cursor: pointer;
+     border: 1px solid black; 
+     border-radius:13px; 
+     }
+#country_container:hover { 
+     box-shadow: 0px 0px 10px black;
+     background-color: gray; 
+     border: 1px solid gray; 
+     cursor: pointer; 
+     }
+#names { 
+     cursor: pointer; 
+       }

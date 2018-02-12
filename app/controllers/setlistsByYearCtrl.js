@@ -1,7 +1,7 @@
 "use strict";
 
 // controller to get all years of a specific Era then break the years down into what shows were played that year
-angular.module("theNumberLine").controller("setlistsByYearCtrl", function ($scope, setlistFactory, FbFactory, $location, $routeParams) {
+angular.module("theNumberLine").controller("setlistsByYearCtrl", function ($scope, setlistFactory, FbFactory, $location, $routeParams, $window) {
 
     // grabs the route params and sets it to get shows for that year
     let yearId = $routeParams.yearValue;
@@ -15,7 +15,7 @@ angular.module("theNumberLine").controller("setlistsByYearCtrl", function ($scop
 
             });
     };
-     
+
 
     // keeps the user logged in so the data isnt lost when the page is refreshed
     firebase.auth().onAuthStateChanged((user) => {
@@ -27,6 +27,8 @@ angular.module("theNumberLine").controller("setlistsByYearCtrl", function ($scop
         setlistFactory.getShowDataByDate(years)
             .then((shows) => {
                 $scope.songs = shows.data.data.tracks;
+                $scope.showId = shows.data.data.id;
+                console.log('when i click the show detials', $scope.showId);
                 $scope.venue = shows.data.data.venue;
                 $scope.date = shows.data.data.date;
                 // $scope.mustShowButton = true;
@@ -38,12 +40,44 @@ angular.module("theNumberLine").controller("setlistsByYearCtrl", function ($scop
             });
     };
 
+
+
     // function that pass the user id to the firbase factory to save, passes show id to firebase to store for user
-    $scope.addSeenShow = () => {
-        FbFactory.addShow($scope.showObject);
+    $scope.addSeenShow = (showId) => {
+        console.log('show Id', showId);
+
+        // function that gets users shows to compare against the already saved shows
+        FbFactory.getUserShows()
+            .then((shows) => {
+
+                let userIdArr = [];
+                let newArr = Object.values(shows);
+                // condtional if user has never added a show to be able to add 
+                if (newArr.length > 0) {
+
+                    for (let i = 0; i < newArr.length; i++) {
+                        
+                        if (newArr[i].showId === showId) {
+                            $window.alert("you've already added this show");
+                            // stops the lop so users shows arnt added expontionally
+                            return;
+                        }
+                    }
+
+                    FbFactory.addShow($scope.showObject);
+
+                }
+                else FbFactory.addShow($scope.showObject);
+
+            });
+
+
     };
-    
-        
+
+
 });
+
+
+
 
 
