@@ -7,14 +7,26 @@ angular.module("theNumberLine").controller("searchSetlistCtrl", function ($scope
     $scope.searchByDate = () => {
         setlistFactory.getShowDataByDate($scope.searchForShowByDate)
             .then((shows) => {
-                $scope.songs = shows.data.data.tracks;
-                $scope.venue = shows.data.data.venue;
                 $scope.mustShowButton = true;
+                $scope.songs = shows.data.data.tracks;
+                $scope.showId = shows.data.data.id;
+                $scope.venue = shows.data.data.venue;
+                $scope.date = shows.data.data.date;
+                $scope.location = shows.data.data.venue.location;
+                $scope.lat = shows.data.data.venue.latitude;
+                $scope.long = shows.data.data.venue.longitude;
+
                 $scope.showObject = {
                     showId: shows.data.data.id,
-                    userId: firebase.auth().currentUser.uid
-                };
+                    date: $scope.date,
+                    userId: firebase.auth().currentUser.uid,
+                    venue: $scope.venue.name,
+                    location: $scope.location,
+                    lat: $scope.lat,
+                    long: $scope.long
+                };             
             });
+
     };
     
     // need to figure out how to make this work with out searching for slug

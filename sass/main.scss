@@ -16,28 +16,31 @@ body{
     padding-top: 20px;
     height: 400;
     width: 800px;
+    background-color: whitesmoke;
 }
 
 #pieContainer{
-    padding-top: 20px;
-    height: 400;
-    width: 800px;
+     padding-bottom: inherit;
+    height: 500px;
+    width: 1000px;
+
 }
 
 #barContainer{
     padding-top: 20px;
     height: 400;
     width: 800px;
+    background-color: papayawhip;
 }
 
 // Google Maps Css
 #map{
     height:700px; 
     width:1000px; 
-    box-shadow: 3px 3px 10px gray;
-    padding-bottom: 1em;
     }
 
 #markerStyle{
     background-color: snow;
 }
+
+   
