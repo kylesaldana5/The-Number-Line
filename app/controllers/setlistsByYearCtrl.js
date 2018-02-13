@@ -11,8 +11,6 @@ angular.module("theNumberLine").controller("setlistsByYearCtrl", function ($scop
         setlistFactory.getShowByYear(yearId)
             .then((shows) => {
                 $scope.shows = shows.data.data;
-                console.log('shows', $scope.shows);
-
             });
     };
 
@@ -26,19 +24,27 @@ angular.module("theNumberLine").controller("setlistsByYearCtrl", function ($scop
     $scope.showsThisYear = (years) => {
         setlistFactory.getShowDataByDate(years)
             .then((shows) => {
+                console.log('shows',shows );
+                
                 $scope.songs = shows.data.data.tracks;
                 $scope.showId = shows.data.data.id;
                 $scope.venue = shows.data.data.venue;
                 $scope.date = shows.data.data.date;
                 $scope.location = shows.data.data.venue.location;
-                console.log('is this the location?', $scope.location);
-                
+                $scope.lat = shows.data.data.venue.latitude;
+                $scope.long = shows.data.data.venue.longitude;
                 // $scope.mustShowButton = true
+                console.log('show id ',$scope.showId );
+                
+                
                 $scope.showObject = {
                     showId: shows.data.data.id,
                     date: $scope.date,
                     userId: firebase.auth().currentUser.uid,
-                    venue: $scope.location
+                    venue: $scope.venue.name,
+                    location: $scope.location,
+                    lat: $scope.lat,
+                    long: $scope.long
                 };
             });
     };

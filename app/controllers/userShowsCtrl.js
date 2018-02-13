@@ -40,7 +40,7 @@ angular.module("theNumberLine").controller("userShowsCtrl", function ($scope, se
 
                         }
                         $scope.sortedUserShows = finalArr;
-                        console.log('sorted shows', $scope.sortedUserShows);
+
 
                     });
 
@@ -58,9 +58,11 @@ angular.module("theNumberLine").controller("userShowsCtrl", function ($scope, se
     };
 
     // function that allows user to add and edit a note about the show
-    $scope.addNote = (fbItemKey) => {
+    $scope.addNote = (fbItemKey, showId) => {
+        
         let newNote = {
-            showId: fbItemKey,
+            userId: firebase.auth().currentUser.uid,
+            showId: showId,
             note: $scope.userNote.note
         };
         FbFactory.addUserNote(newNote);
@@ -85,6 +87,8 @@ angular.module("theNumberLine").controller("userShowsCtrl", function ($scope, se
     $scope.showDetails = (fbItemKey) => {
         
         $scope.selectedShow = fbItemKey;
+        console.log('selected show ', $scope.selectedShow );
+        
     };
 
 });

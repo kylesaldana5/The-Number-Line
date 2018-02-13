@@ -44,6 +44,7 @@ angular.module("theNumberLine").controller("userStatsCtrl", function ($scope, se
                     let countYears = _.countBy($scope.yearArr);
                     let keyYears = Object.keys(countYears);
                     let timesInYear = Object.values(countYears);
+                    timesInYear.push(0);
 
                     // Chart for what years youve seen phish the most / Line Graph
                     $scope.labels = keyYears;
@@ -82,9 +83,10 @@ angular.module("theNumberLine").controller("userStatsCtrl", function ($scope, se
                 let countDay = _.countBy($scope.dayArr);
                 let keyDay = Object.keys(countDay);
                 let timesInDay = Object.values(countDay);
+                timesInDay.push(0);
 
                  // Chart for what days youve seen phish the most / Bar Chart
-                $scope.colors = ['#DCDCDC'];
+                $scope.colors = ['#FDB45C'];
 
                 $scope.barLabels = keyDay;
                 $scope.barData = [
