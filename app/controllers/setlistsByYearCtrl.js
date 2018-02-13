@@ -24,6 +24,8 @@ angular.module("theNumberLine").controller("setlistsByYearCtrl", function ($scop
     $scope.showsThisYear = (years) => {
         setlistFactory.getShowDataByDate(years)
             .then((shows) => {
+                console.log('shows',shows );
+                
                 $scope.songs = shows.data.data.tracks;
                 $scope.showId = shows.data.data.id;
                 $scope.venue = shows.data.data.venue;
@@ -32,6 +34,8 @@ angular.module("theNumberLine").controller("setlistsByYearCtrl", function ($scop
                 $scope.lat = shows.data.data.venue.latitude;
                 $scope.long = shows.data.data.venue.longitude;
                 // $scope.mustShowButton = true
+                console.log('show id ',$scope.showId );
+                
                 
                 $scope.showObject = {
                     showId: shows.data.data.id,

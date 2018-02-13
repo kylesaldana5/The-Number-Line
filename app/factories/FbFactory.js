@@ -28,7 +28,21 @@ angular.module("theNumberLine").factory("FbFactory", (FBUrl, $q, $http, authFact
                 });
         });
     }
-                    
+
+    // function that gets users notes from firebase
+    function getUserNotes() {
+        return $q((resolve, reject) => {
+            $http
+                .get(`${FBUrl}/notes.json?orderBy="userId"&equalTo="${authFactory.getCurrentUser()}"`)
+                .then(({ data }) => {
+                    resolve(data);
+
+                })
+                .catch((err) => {
+                    reject(err);
+                });
+        });
+    }
                     
                     
     // function that deletes a show from the users collection 
@@ -61,6 +75,6 @@ angular.module("theNumberLine").factory("FbFactory", (FBUrl, $q, $http, authFact
         });
     }
     
-    return { addShow, deleteShow, getUserShows, addUserNote  };
+    return { addShow, deleteShow, getUserShows, addUserNote, getUserNotes  };
 });
 

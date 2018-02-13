@@ -1,5 +1,6 @@
 body{
    background-color: adjust-hue($color: #131380, $degrees: 0) !important;
+   color: antiquewhite !important;
 }
 
 .navHeader {
@@ -9,6 +10,7 @@ body{
 
 .modal-setlist{
     padding-left: 1em;
+    color: lightslategray;
 }
 
 // Graph Css
@@ -30,7 +32,7 @@ body{
     padding-top: 20px;
     height: 400;
     width: 800px;
-    background-color: papayawhip;
+    background-color: whitesmoke;
 }
 
 // Google Maps Css
