@@ -13,6 +13,10 @@ body{
     color: lightslategray;
 }
 
+.era{
+    color: slategray;
+}
+
 // Graph Css
 #lineContainer{
     padding-top: 20px;
@@ -38,11 +42,16 @@ body{
 // Google Maps Css
 #map{
     height:700px; 
-    width:1000px; 
+    width:100% !important; 
     }
 
-#markerStyle{
-    background-color: snow;
+.note{
+    width: 100%;
+}
+
+// Note Styling
+.card-body{
+    color: slategray;
 }
 
    

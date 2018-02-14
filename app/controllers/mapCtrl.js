@@ -12,8 +12,6 @@ angular.module("theNumberLine").controller("mapCtrl", function ($scope, FbFactor
         FbFactory.getUserShows()
         .then((data) => {
             $scope.shows = Object.values(data);
-            console.log('scope shows',$scope.shows );
-            
             getLatLong();   
         })
         .catch((err)=>{
@@ -59,16 +57,12 @@ angular.module("theNumberLine").controller("mapCtrl", function ($scope, FbFactor
         FbFactory.getUserNotes()
         .then((data) => {
             $scope.notes = Object.values(data);
-            console.log('data',$scope.notes );
-            
         });
     };
 
     // function that compares if the clicked pins show is the same as the note and displays them on the DOM
     $scope.showNote = (event, showId) => {
-        $scope.selectedShow = showId;
-        console.log('selected show', $scope.selectedShow );
-        
+        $scope.selectedShow = showId;   
     };
     
 });

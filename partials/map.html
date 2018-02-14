@@ -16,14 +16,34 @@
     </ol>
 </nav>
 
-
-<ng-map id="map" zoom="5" center="[37.0902, -91.7129]" on-center-changed="centerCustomMarker()">
-    <marker ng-repeat="show in latLongArr " position="[{{show.lat}}, {{show.long}}]" on-click="showNote(show.showId)" ></marker>    
-    <marker ng-repeat="show in noLatLongArr " position="{{show.venue}}, {{show.location}}" on-click="showNote(show.showId)"></marker>
-</ng-map>
-
-<div ng-repeat="note in notes">
-<div  ng-if=" note.showId === selectedShow">
-    <span>{{note.note}}</span>
+<div class="container-fluid">
+    <div class="row">
+        <div class=" no-gutters col-md-6 map">
+            <ng-map id="map" zoom="5" center="[37.0902, -91.7129]" on-center-changed="centerCustomMarker()">
+                <marker ng-repeat="show in latLongArr " position="[{{show.lat}}, {{show.long}}]" on-click="showNote(show.showId)"></marker>
+                <marker ng-repeat="show in noLatLongArr " position="{{show.venue}}, {{show.location}}" on-click="showNote(show.showId)"></marker>
+            </ng-map>
+        </div>
+        <div ng-repeat="note in notes" ng-if="note.showId === selectedShow" class="row" >
+            <div class="col-md-6 no-gutters" >
+                <div class="card-body">
+                    <p>{{note.note}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
-</div>
+
+
+
+<!-- <div class="col-md-6">
+    <div ng-repeat="note in notes" class="row note">
+        <div ng-if=" note.showId === selectedShow">
+            <div class="card">
+                <div class="card-body note">
+                    <h5 class="card-title note">Your Notes</h5>
+                    <p class="card-text">{{note.note}}</p>
+                </div>
+            </div>
+        </div>
+    </div> -->
