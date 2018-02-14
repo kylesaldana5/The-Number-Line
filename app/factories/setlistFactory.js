@@ -36,8 +36,6 @@ angular.module("theNumberLine").factory("setlistFactory", function ($q, $http) {
             $http
                 .get(`http://phish.in/api/v1/eras/${era}`)
                 .then((shows) => {
-                    console.log('era', shows);
-
                     resolve(shows);
                 });
 
