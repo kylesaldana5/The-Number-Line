@@ -1,6 +1,7 @@
 body{
    background-color: adjust-hue($color: #131380, $degrees: 0) !important;
-   color: antiquewhite !important;
+// background-image: url(../images/doughnut_sign.jpg);
+// background-repeat: no-repeat;
 }
 
 .navHeader {
@@ -17,26 +18,48 @@ body{
     color: slategray;
 }
 
+.nittyGritty{
+    font-size: 6.5rem;
+}
+
 // Graph Css
 #lineContainer{
-    padding-top: 20px;
+    // padding-top: 20px;
     height: 400;
     width: 800px;
     background-color: whitesmoke;
+    margin-bottom: 2em; 
+    margin-top: 2em ;
+    padding: 30px;
+}
+
+#lineList{
+    color: whitesmoke;
+
 }
 
 #pieContainer{
-     padding-bottom: inherit;
-    height: 500px;
-    width: 1000px;
+    height: 350px;
+    width: 700px;
+    margin-top: 2em;
 
 }
 
 #barContainer{
-    padding-top: 20px;
     height: 400;
     width: 800px;
     background-color: whitesmoke;
+    margin-top: 2em;
+}
+
+// Dates page styling
+
+.headerGraphs{
+    margin-top: 4em;
+}
+
+.headerGraphsTop{
+    margin-top: 2em;
 }
 
 // Google Maps Css
@@ -54,4 +77,33 @@ body{
     color: slategray;
 }
 
-   
+//  main user stats page styling
+
+.breadcrumb{
+    margin-bottom: 0em !important;
+}
+.jumbotron-fluid {
+    padding-left: 25em !important;
+    color: slategray;
+    margin-bottom: 0em;
+    background-image: url("../images/phsihDonuts.png");
+    font-weight: bold;
+}
+
+.timesSeen{
+    height: 80%;
+    margin: 8em;
+    background-color: slategray;
+
+}
+
+
+#mainLineContainer{
+    height: 400px;
+    width: 800px;
+    background-color: whitesmoke;
+    margin-bottom: 25em; 
+    margin-top: 8em ;
+    padding: 30px;
+}
+

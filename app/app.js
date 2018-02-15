@@ -19,7 +19,7 @@ let isIn = (authFactory, $location) => {
 };
 
 // routing for the app 
-angular.module("theNumberLine", ["ngRoute", "chart.js", 'nvd3', 'ngMap'])
+angular.module("theNumberLine", ["ngRoute", "chart.js", 'ngMap'])
     .constant("FBUrl", "https://the-number-line.firebaseio.com")
     .config($routeProvider => {
         $routeProvider
@@ -45,6 +45,16 @@ angular.module("theNumberLine", ["ngRoute", "chart.js", 'nvd3', 'ngMap'])
             .when('/stats', {
                 templateUrl: 'partials/userStats.html',
                 controller: 'userStatsCtrl',
+                resolve: { isIn }
+            })
+            .when('/dates', {
+                templateUrl: 'partials/dates.html',
+                controller: 'datesCtrl',
+                resolve: { isIn }
+            })
+            .when('/songs', {
+                templateUrl: 'partials/songs.html',
+                controller: 'songsCtrl',
                 resolve: { isIn }
             })
             .when('/map', {

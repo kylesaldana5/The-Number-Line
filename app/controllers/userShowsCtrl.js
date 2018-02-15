@@ -1,7 +1,7 @@
 "use strict";
 
 // controller to display all the shows a user has added
-angular.module("theNumberLine").controller("userShowsCtrl", function ($scope, setlistFactory, $q, FbFactory, $location, $routeParams, $route, $window, authFactory) {
+angular.module("theNumberLine").controller("userShowsCtrl", function ($scope, setlistFactory, $q, FbFactory, trackFactory, $location, $routeParams, $route, $window, authFactory) {
 
 
 
@@ -40,6 +40,12 @@ angular.module("theNumberLine").controller("userShowsCtrl", function ($scope, se
 
                         }
                         $scope.sortedUserShows = finalArr;
+                        
+                        // sending users sorted shows to track factory to pass to stats ctrl
+                        trackFactory.addList($scope.sortedUserShows);
+
+                        // console.log('sorted shows ',$scope.sortedUserShows );
+                        
 
 
                     });
@@ -87,7 +93,6 @@ angular.module("theNumberLine").controller("userShowsCtrl", function ($scope, se
     $scope.showDetails = (fbItemKey) => {
         
         $scope.selectedShow = fbItemKey;
-        console.log('selected show ', $scope.selectedShow );
         
     };
 

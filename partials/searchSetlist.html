@@ -2,17 +2,19 @@
 <form>
     <div class="form-group">
         <h3>Search By Date</h3>
-        <input ng-model="searchForShowByDate" type="txt" class="form-control" id="exampleFormControlInput1" placeholder="YYYY-MM-DD">
-        <br>
-        <button class="btn btn-secondary" data-toggle="modal" data-target=".bd-example-modal-lg" ng-click="searchByDate()">Search</button>
+        <div class="col-sm-3">
+            <input ng-model="searchForShowByDate" type="txt" class="form-control" id="exampleFormControlInput1" placeholder="YYYY-MM-DD">
+
+            <br>
+            <button class="btn btn-secondary" data-toggle="modal" data-target=".bd-example-modal-lg" ng-click="searchByDate()">Search</button>
+        </div>
     </div>
 </form>
 
 <!-- outputs data/ songs that were played at the show user's searched -->
-<!-- <div ng-show="mustShowButton"> Not sure if i need this now?-->
 <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
-        <div class="modal-content">
+        <div class="modal-content modal-setlist">
             <div>
                 <div>
                     <h3>{{venue.name}}</h3>
@@ -48,32 +50,20 @@
 <!-- div that has input search in a drop down by era 3.0/2.0/1.0 -->
 <div class="era">
     <h4>Search By Era</h4>
-    <select class="form-control" id="exampleFormControlSelect1" ng-model="searchForShowByEra" name="phishEras">
-        <option value="3.0">3.0</option>
-        <option value="2.0">2.0</option>
-        <option value="1.0">1.0</option>
-    </select>
-    <br>
-    <input class="btn btn-secondary" ng-click="searchByEra()" type="submit">
+    <div class="col-sm-3">
+        <select class="form-control" id="exampleFormControlSelect1" ng-model="searchForShowByEra" name="phishEras">
+            <option value="3.0">3.0</option>
+            <option value="2.0">2.0</option>
+            <option value="1.0">1.0</option>
+        </select>
+        <br>
+        <input class="btn btn-secondary" ng-click="searchByEra()" type="submit">
+    </div>
     <!-- output era dates -->
     <div class="list-group">
-        <a class="list-group-item list-group-item-action" g-model="searchForShowsByYears" ng-click="rederictShowsByEra(eraDate)"
-            ng-repeat="eraDate in eraDates">{{eraDate}}</a>
+        <div class="col-sm-3">
+            <a class="list-group-item list-group-item-action" g-model="searchForShowsByYears" ng-click="rederictShowsByEra(eraDate)" ng-repeat="eraDate in eraDates">{{eraDate}}</a>
+        </div>
     </div>
 </div>
 
-<!-- input show dates by venue search -->
-<div>
-    <h4>Search By Venue</h4>
-    <input type="text" ng-model="searchForShowByVenue">
-    <br>
-    <br>
-    <button class="btn btn-secondary" ng-click="searchByVenue()">Search By Venue</button>
-
-    <!-- output venue dates -->
-    <ul>
-        <a href="">
-            <li ng-repeat="item in venueDates">{{item}}</li>
-        </a>
-    </ul>
-</div>
