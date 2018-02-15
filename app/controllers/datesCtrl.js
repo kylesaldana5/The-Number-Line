@@ -87,7 +87,10 @@ angular.module("theNumberLine").controller("datesCtrl", function ($scope, setlis
                 timesInDay.push(0);
 
                 // Chart for what days youve seen phish the most / Bar Chart
-                $scope.colors = ['#FDB45C'];
+                $scope.colors = [{
+                    borderColor: '#763626',
+                    backgroundColor: '#90AFC5',
+                }];
 
                 $scope.barLabels = keyDay;
                 $scope.barData = [
