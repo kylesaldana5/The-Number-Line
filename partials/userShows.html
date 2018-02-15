@@ -1,11 +1,15 @@
-<div>
-    <!-- Need to Find a way to filter shows so the are in order according to date -->
-    <div ng-repeat="sortedUserShow in sortedUserShows">
-        <div ng-click="showDetails(sortedUserShow.fbItemKey)">
-            <h3>{{sortedUserShow.showData.data.venue.name}}</h3>
-            <h4>{{sortedUserShow.showData.data.date}}</h4>
-            <button class="btn btn-secondary" data-toggle="modal" data-target=".bd-example-modal-lg">See Setlist</button>
+<div ng-repeat="sortedUserShow in sortedUserShows | orderBy:'showData.data.date'">
+
+        <div ng-click="showDetails(sortedUserShow.fbItemKey)" class="card" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title">{{sortedUserShow.showData.data.venue.name}}</h5>
+                <p class="card-text">{{sortedUserShow.showData.data.date}}</p>
+                <button class="btn btn-secondary" data-toggle="modal" data-target=".bd-example-modal-lg" >See Setlist</button>
+            </div>
         </div>
+
+
+
         <div ng-if="sortedUserShow.fbItemKey === selectedShow">
             <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
                 <div class="modal-dialog modal-lg">

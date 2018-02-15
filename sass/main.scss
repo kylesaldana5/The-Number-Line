@@ -1,6 +1,8 @@
 body{
    background-color: adjust-hue($color: #131380, $degrees: 0) !important;
-   color: antiquewhite !important;
+// background-image: url(../images/doughnut_sign.jpg);
+// background-repeat: no-repeat;
+color: antiquewhite !important;
 }
 
 .navHeader {
@@ -17,26 +19,44 @@ body{
     color: slategray;
 }
 
+.nittyGritty{
+    font-size: 6.5rem;
+}
+
 // Graph Css
 #lineContainer{
-    padding-top: 20px;
+    // padding-top: 20px;
     height: 400;
     width: 800px;
     background-color: whitesmoke;
+    margin-bottom: 2em; 
+    margin-top: 2em ;
+    padding: 30px;
+}
+
+#lineList{
+    color: whitesmoke;
+
 }
 
 #pieContainer{
-     padding-bottom: inherit;
-    height: 500px;
-    width: 1000px;
+    height: 350px;
+    width: 700px;
+    margin-top: 2em;
 
 }
 
 #barContainer{
-    padding-top: 20px;
     height: 400;
     width: 800px;
     background-color: whitesmoke;
+    margin-top: 2em;
+}
+
+// Dates page styling
+
+.headerGraphs{
+    margin-top: 4em;
 }
 
 // Google Maps Css

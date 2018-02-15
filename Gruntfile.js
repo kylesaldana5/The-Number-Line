@@ -3,7 +3,7 @@ module.exports = function (grunt) {
         "angular-builder": {
             options: {
                 mainModule: "theNumberLine",
-                externalModules: ["ngRoute", "chart.js", 'nvd3', "ngMap"]
+                externalModules: ["ngRoute", "chart.js", 'nvd3', "d3", "ngMap"]
             },
             app: {
                 src: "./app/**/*.js",
@@ -12,7 +12,7 @@ module.exports = function (grunt) {
         },
         jshint: {
             options: {
-                predef: ["document", "console", "firebase", "moment", "_" ],
+                predef: ["document", "console", "firebase", "d3", "moment", "_" ],
                 esnext: true,
                 globalstrict: true,
                 globals: { angular: true }

@@ -1,0 +1,89 @@
+<!-- Bread Crumbs -->
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+            <a href="#!/stats">Stats Overview</a>
+        </li>
+        <li class="breadcrumb-item">
+            <a href="#!/dates">Dates</a>
+        </li>
+        <li class="breadcrumb-item">
+            <a href="#!/songs">Songs</a>
+        </li>
+        <li class="breadcrumb-item">
+            <a href="#!/map">Map</a>
+        </li>
+    </ol>
+</nav>
+
+<!-- Line Graph Angular Js Charts -->
+<div class="card col-sm-6 header">
+    <div class="card-body headerGraphColor">
+        By Year
+    </div>
+</div>
+
+</div class="container-fluid">
+<div class="row">
+    <div class="col-md-6 no-gutters" id="lineContainer">
+        <canvas id="line" class="chart chart-line" chart-data="data" chart-labels="labels" chart-series="series" chart-options="options"
+            chart-dataset-override="datasetOverride">
+        </canvas>
+    </div>
+
+
+    <div class="card-body col-md-6">
+        <ul ng-repeat="(key, value) in countYears" id="lineList">
+            <li>{{key}} : {{value}}</li>
+        </ul>
+    </div>
+</div>
+</div>
+
+
+
+
+<!-- Doughnout Chart Angular Js Charts -->
+<div class="card col-sm-6 headerGraphs">
+    <div class="card-body headerGraphColor">
+        By Month
+    </div>
+</div>
+
+
+</div class="container-fluid">
+<div class="row">
+    <div class="col-md-6 no-gutters" id="pieContainer">
+        <canvas id="pie" class="chart chart-pie" chart-data="pieData" chart-labels="pieLabels"></canvas>
+    </div>
+
+    <div class="card-body col-md-6">
+        <ul ng-repeat="(key, value) in countMomentMonths" id="lineList">
+            <li>{{key}} : {{value}}</li>
+        </ul>
+    </div>
+</div>
+</div>
+
+
+<!-- Bar Char Angular Js Charts -->
+<div class="card col-sm-6 headerGraphs">
+    <div class="card-body headerGraphColor">
+        By Day
+    </div>
+</div>
+
+</div class="container-fluid">
+<div class="row">
+    <div class="col-md-6 no-gutters" id="barContainer">
+        <canvas id="base" class="chart-bar" chart-data="barData" chart-labels="barLabels" chart-colors="colors" chart-dataset-override="barDatasetOverride">
+        </canvas>
+    </div>
+
+    <div class="card-body col-md-6">
+        <ul ng-repeat="(key, value) in countDay" id="lineList">
+            <li>{{key}} : {{value}}</li>
+        </ul>
+    </div>
+</div>
+</div>

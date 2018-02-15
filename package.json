@@ -22,10 +22,12 @@
   "dependencies": {
     "angular": "^1.6.8",
     "angular-chart.js": "^1.1.1",
+    "angular-d3-word-cloud": "^0.5.3",
     "angular-moment": "^1.2.0",
     "angular-route": "^1.6.8",
     "bootstrap": "4.0.0",
     "chart.js": "^2.7.1",
+    "d3": "^4.13.0",
     "firebase": "^4.9.0",
     "jquery": "^3.3.1",
     "lodash": "^4.17.5",
