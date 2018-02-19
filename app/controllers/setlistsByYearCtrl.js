@@ -24,7 +24,6 @@ angular.module("theNumberLine").controller("setlistsByYearCtrl", function ($scop
     $scope.showsThisYear = (years) => {
         setlistFactory.getShowDataByDate(years)
             .then((shows) => {
-                console.log('shows',shows );
                 
                 $scope.songs = shows.data.data.tracks;
                 $scope.showId = shows.data.data.id;
@@ -34,7 +33,6 @@ angular.module("theNumberLine").controller("setlistsByYearCtrl", function ($scop
                 $scope.lat = shows.data.data.venue.latitude;
                 $scope.long = shows.data.data.venue.longitude;
                 // $scope.mustShowButton = true
-                console.log('show id ',$scope.showId );
                 
                 
                 $scope.showObject = {
@@ -53,7 +51,6 @@ angular.module("theNumberLine").controller("setlistsByYearCtrl", function ($scop
 
     // function that pass the user id to the firbase factory to save, passes show id to firebase to store for user
     $scope.addSeenShow = (showId) => {
-        console.log('show Id', showId);
 
         // function that gets users shows to compare against the already saved shows
         FbFactory.getUserShows()

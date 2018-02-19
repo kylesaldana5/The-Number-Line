@@ -12,7 +12,7 @@ module.exports = function (grunt) {
         },
         jshint: {
             options: {
-                predef: ["document", "console", "firebase", "d3", "moment", "_" ],
+                predef: ["document", "console", "firebase", "d3", "moment", "_", "cloud" ],
                 esnext: true,
                 globalstrict: true,
                 globals: { angular: true }
