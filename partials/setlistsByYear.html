@@ -1,12 +1,14 @@
 <!-- add a header that displays the Era above list of shows -->
-
-<div ng-model="showsInYears" ng-repeat="show in shows">
-    <div>
-        <h3>{{show.location}}</h3>
-        <h4>{{show.date}}</h4>
-        <button ng-click="showsThisYear(show.date)" class="btn btn-secondary" data-toggle="modal" data-target=".bd-example-modal-lg">See Setlist</button>
-        <br>
-    </div>
+    <div class="container-fluid row">
+        <div  ng-model="showsInYears" ng-repeat="show in shows" class=" col-sm-3 d-flex align-items-stretch">
+            <div class="card row no-gutters" style="width: 18rem;">
+                <div class="card-body userShowsCard">
+                    <h5 class="card-title">{{show.location}}</h5>
+                    <p class="card-text">{{show.date}}</p>
+                    <button  ng-click="showsThisYear(show.date)" class="btn btn-secondary" data-toggle="modal" data-target=".bd-example-modal-lg">See Setlist</button>
+                </div>
+            </div>
+        </div>
     <!-- <div ng-show=" show.id === showObject.showId">  Not sure if i need this now? -->
         <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-lg">

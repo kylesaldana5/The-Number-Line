@@ -1,13 +1,13 @@
 <div class="container-fluid row" >
-    <div class=" col-sm-4 d-flex align-items-stretch" ng-repeat="sortedUserShow in sortedUserShows | orderBy:'showData.data.date'">
-    <div ng-click="showDetails(sortedUserShow.fbItemKey)" class="card row" style="width: 18rem;">
-        <div class="card-body">
+    <div ng-repeat="sortedUserShow in sortedUserShows | orderBy:'showData.data.date'"  class=" col-sm-3 d-flex align-items-stretch" >
+    <div ng-click="showDetails(sortedUserShow.fbItemKey)" class="card row no-gutters" style="width: 18rem;">
+        <div class="card-body userShowsCard">
             <h5 class="card-title">{{sortedUserShow.showData.data.venue.name}}</h5>
-            <p class="card-text">{{sortedUserShow.showData.data.date}}</p>
-            <button class="btn btn-secondary" data-toggle="modal" data-target=".bd-example-modal-lg" >See Setlist</button>
+            <p  class="card-text">{{sortedUserShow.showData.data.date}}</p>
+            <button  class="btn btn-secondary" data-toggle="modal" data-target=".bd-example-modal-lg" >See Setlist</button>
         </div>
     </div>
-    </div>
+    
     
     <div ng-if="sortedUserShow.fbItemKey === selectedShow">
         <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
@@ -45,6 +45,7 @@
                             <textarea ng-model="userNote.note" cols="40" rows="5"></textarea>
                         </div>
                     </div>
+                </div>
                 </div>
             </div>
         </div>

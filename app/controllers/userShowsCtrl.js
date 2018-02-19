@@ -43,11 +43,7 @@ angular.module("theNumberLine").controller("userShowsCtrl", function ($scope, se
                         
                         // sending users sorted shows to track factory to pass to stats ctrl
                         trackFactory.addList($scope.sortedUserShows);
-
-                        // console.log('sorted shows ',$scope.sortedUserShows );
                         
-
-
                     });
 
             });

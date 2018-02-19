@@ -1,24 +1,44 @@
 <!-- Bread Crumbs -->
 <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
-        <!-- <li class="breadcrumb-item">
-            <a href="#!/stats">Stats Overview</a>
-        </li> -->
         <li class="breadcrumb-item">
             <a href="#!/dates">Dates</a>
         </li>
-        <!-- <li class="breadcrumb-item">
+        <li class="breadcrumb-item">
             <a href="#!/songs">Songs</a>
-        </li> -->
+        </li>
         <li class="breadcrumb-item">
             <a href="#!/map">Map</a>
         </li>
     </ol>
 </nav>
 
-<!-- Word Cloud -->
-<div id="wordsCloud">
-    <word-cloud words="words" width="width" height="height" padding="10" rotate="rotate" random="random"
-        use-tooltip="useTooltip" use-transition="useTransition" on-click="wordClicked">
-    </word-cloud>
+<div class="container-fluid row">
+    <div class=" col-md-4 d-flex align-items-stretch">
+        <div class="card row no-gutters" style="width: 18rem;">
+            <div class="card-body userShowsCard">
+                <h5 class="card-title">Youve Seen Phish</h5>
+                <h2 class="card-text">{{amountOfShows}} Times!</h2>
+                <button class="btn btn-secondary" ng-click="seeShows()">See All Shows</button>
+            </div>
+        </div>
+    </div>
+    <div class=" col-md-4 d-flex align-items-stretch">
+        <div class="card row no-gutters" style="width: 18rem;">
+            <div class="card-body userShowsCard">
+                <h5 class="card-title">Most Seen Song</h5>
+                <h2 class="card-text">{{mostSeenSong}}</h2>
+                <button class="btn btn-secondary" ng-click="seeSongs()">See All Songs</button>
+            </div>
+        </div>
+    </div>
+    <div class=" col-md-4 d-flex align-items-stretch">
+        <div class="card row no-gutters" style="width: 18rem;">
+            <div class="card-body userShowsCard">
+                <h5 class="card-title">Favorite Venue</h5>
+                <h2 class="card-text">{{mostSeenVenue}}</h2>
+                <button class="btn btn-secondary" ng-click="seeSongs()">See All Songs</button>
+            </div>
+        </div>
+    </div>
 </div>

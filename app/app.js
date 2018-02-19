@@ -42,11 +42,6 @@ angular.module("theNumberLine", ["ngRoute", "chart.js", 'ngMap'])
                 controller: 'userShowsCtrl',
                 resolve: { isIn }
             })
-            .when('/stats', {
-                templateUrl: 'partials/userStats.html',
-                controller: 'userStatsCtrl',
-                resolve: { isIn }
-            })
             .when('/dates', {
                 templateUrl: 'partials/dates.html',
                 controller: 'datesCtrl',
