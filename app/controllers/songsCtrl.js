@@ -23,14 +23,19 @@ angular.module("theNumberLine").controller("songsCtrl", function ($scope, setlis
 
                     // put all tracks into an obj with there keys being how many times you have seen that song
                     $scope.countedSongs = _.countBy($scope.indivSongArr);
+                    
+                });
 
                     // count most seen song in obj to display in DOM    FIGURE OUT WHY IT DISPLAY ONLY ON SECOND TIME COMING TO THE PAGE??!!
                     $scope.mostSeenSong = _.maxBy(_.keys($scope.countedSongs), function (o) { return $scope.countedSongs[o]; });
                 });
-
+                // push counted obj into array so order by can be used in the ng-reapet
+                $scope.countedSongsArr = Object.entries($scope.countedSongs);
+                // console.log('arr', $scope.countedSongsArr);
             });
-        });
     };
+
+
 
     // function that pushes all users venues into a new arry
     let usersVenue = () =>{

@@ -28,7 +28,19 @@
             <div class="card-body userShowsCard">
                 <h5 class="card-title">Most Seen Song</h5>
                 <h2 class="card-text">{{mostSeenSong}}</h2>
-                <button class="btn btn-secondary" ng-click="seeSongs()">See All Songs</button>
+                <button class="btn btn-secondary" data-toggle="modal" data-target=".bd-example-modal-lg" ng-click="seeSongs()">See All Songs</button>
+            </div>
+        </div>
+    </div>
+    <!-- Modal for all songs seen and amount of times seen -->
+    <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-setlist">
+                    <ul ng-repeat="song in countedSongsArr | orderBy:'[0]'">
+                        <li ng-repeat="i in song">{{i}}</li>
+                    </ul>
+                </div>
             </div>
         </div>
     </div>
