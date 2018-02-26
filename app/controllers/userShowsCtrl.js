@@ -40,6 +40,7 @@ angular.module("theNumberLine").controller("userShowsCtrl", function ($scope, se
 
                         }
                         $scope.sortedUserShows = finalArr;
+                        console.log('shows',$scope.sortedUserShows );
                         
                         // sending users sorted shows to track factory to pass to stats ctrl
                         trackFactory.addList($scope.sortedUserShows);
