@@ -1,5 +1,5 @@
 <div class="container-fluid row">
-    <div ng-repeat="sortedUserShow in sortedUserShows | orderBy:'showData.data.date'" class=" col-sm-3 d-flex align-items-stretch">
+    <div ng-repeat="sortedUserShow in sortedUserShows | orderBy:'showData.data.date'" class=" col-sm-3 d-flex align-items-stretch cardPadding">
         <div ng-click="showDetails(sortedUserShow.fbItemKey)" class="card row no-gutters" style="width: 18rem;">
             <div class="card-body userShowsCard">
                 <h5 class="card-title">{{sortedUserShow.showData.data.venue.name}}</h5>
