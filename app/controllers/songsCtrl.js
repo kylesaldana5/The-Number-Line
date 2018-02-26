@@ -5,7 +5,8 @@ angular.module("theNumberLine").controller("songsCtrl", function ($scope, setlis
 
     // gets users sorted shows from track factory
     $scope.sortedUserShows = trackFactory.track;
-
+    // console.log('shows', $scope.sortedUserShows );
+    
     // find the length to display how many shows a user has seen
     $scope.amountOfShows = $scope.sortedUserShows.length;
     
@@ -31,9 +32,14 @@ angular.module("theNumberLine").controller("songsCtrl", function ($scope, setlis
                 });
                 // push counted obj into array so order by can be used in the ng-reapet
                 $scope.countedSongsArr = Object.entries($scope.countedSongs);
-                // console.log('arr', $scope.countedSongsArr);
+                $scope.countedSongsArr.sort(function (a, b) {
+                    return b[1] - a[1];
+                });
+            
             });
     };
+                
+            
 
 
 
@@ -50,6 +56,12 @@ angular.module("theNumberLine").controller("songsCtrl", function ($scope, setlis
 
                 // put all venues into an obj with there keys being how many times you have been to that venue
                 $scope.countedVenue = _.countBy($scope.indivVenueArr);
+
+                // push counted obj into array so order by can be used in the ng-reapet
+                $scope.countedVenueArr = Object.entries($scope.countedVenue);
+                $scope.countedVenueArr.sort(function (a, b) {
+                    return b[1] - a[1];
+                });
                 
             });
             // count most seen venues in obj to display in DOM
