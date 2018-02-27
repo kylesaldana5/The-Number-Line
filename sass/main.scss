@@ -1,16 +1,13 @@
 body{
-//    background-color: adjust-hue($color: #131380, $degrees: 0) !important;
-background-image: url(../images/painio.jpg);
-width: 100%;
-height: 100%;
-margin: 0px;
-padding: 0px;
-opacity: 0.9;
+    background: linear-gradient(to right, #7D4C65 15%, #B74646);
+    margin: auto 10px;
+    width: auto;
+    height: 2000px;
 font-family: 'Futura' !important;
 }
 
 a{
-    color: steelblue !important;
+    color: rgb(247, 247, 247) !important;
 }
 
 .cardPadding{
@@ -18,17 +15,17 @@ a{
 }
 
 .searchByDate{
-    color: slategray;
+    color:  rgb(247, 247, 247);
 }
 
 .navHeader {
     padding-left: 50em;
-    color: rgba(158, 158, 158, 0.673)!important;
+    color:  rgb(247, 247, 247) !important;
 }
 
 // modal setlists style
 .modal-open .modal{
-    background: linear-gradient(#3F51B5, #607D8B);
+    background: linear-gradient(#3F51B5, #542A2A);
     
 }
 
@@ -120,14 +117,13 @@ border-radius:7px 7px 7px 7px ;
 
 
 .era{
-    color: slategray;
+    color: rgb(247, 247, 247);
 }
 
 
 
 // Graph Css
 #lineContainer{
-    // padding-top: 20px;
     height: 400;
     width: 800px;
     background-color: whitesmoke;
@@ -181,26 +177,29 @@ border-radius:7px 7px 7px 7px ;
 }
 
 // Note Styling
-.card-body{
+.userShowsCard{
     background: linear-gradient(#3F51B5, #607D8B);
+    opacity: 0.5;
     color: white;
+}
+
+.userShowsCard:hover, .userShowsCard:focus, .userShowsCard:active{
+    transform: scale(1.0);
+    background:  linear-gradient(#3F51B5, #7D4C65);
+
 }
 
 .align-items-stretch{
     padding-bottom: 10px;
+    padding-top: 10px;
 }
 //  main user stats page styling
 
-.breadcrumb{
-    margin-bottom: 0em !important;
+.breadcrumb a{
+    color: black !important;
+
 }
-.jumbotron-fluid {
-    padding-left: 25em !important;
-    color: slategray;
-    margin-bottom: 0em;
-    background-image: url("../images/phsihDonuts.png");
-    font-weight: bold;
-}
+
 
 .timesSeen{
     height: 80%;
@@ -219,16 +218,14 @@ border-radius:7px 7px 7px 7px ;
     padding: 30px;
 }
 
-// Users Shows Styling
-
-.userShowsCard{
-    opacity: 0.5;
-    // color: black;
-}
 
 // Maing log in page styling
 
 .googleLogin{
     margin-left: 42em;
     margin-top: 10em;
+}
+
+.era a {
+    color: #607D8B !important;
 }
