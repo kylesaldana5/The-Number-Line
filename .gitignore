@@ -1,5 +1,6 @@
 dist/project.js
 node_modules
-css/
+css/main.css.map
 .sass-cache
 app/values
+public

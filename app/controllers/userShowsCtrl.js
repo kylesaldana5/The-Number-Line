@@ -19,7 +19,7 @@ angular.module("theNumberLine").controller("userShowsCtrl", function ($scope, se
                 userArry.forEach(showId => {
                     userPromises.push(setlistFactory.getShowById(showId[1].showId));
                 });
-                // excutes all promises
+                // executes all promises
                 $q.all(userPromises)
                     .then((data) => {
                         let finalArr = [];

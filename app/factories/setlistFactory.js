@@ -6,7 +6,7 @@ angular.module("theNumberLine").factory("setlistFactory", function ($q, $http) {
     let getShowDataByDate = (date) => {
         return $q((resolve, reject) => {
             $http
-                .get(`http://phish.in/api/v1/shows/${date}`)
+                .get(`https://phish.in/api/v1/shows/${date}`)
                 .then((shows) => {
                     resolve(shows);
                 })
@@ -20,7 +20,7 @@ angular.module("theNumberLine").factory("setlistFactory", function ($q, $http) {
     let getVenueData = (venue) => {
         return $q((resolve, reject) => {
             $http
-                .get(`http://phish.in/api/v1/venues/${venue}`)
+                .get(`https://phish.in/api/v1/venues/${venue}`)
                 .then((shows) => {
                     resolve(shows);
                 });
@@ -34,7 +34,7 @@ angular.module("theNumberLine").factory("setlistFactory", function ($q, $http) {
     let getEraData = (era) => {
         return $q((resolve, reject) => {
             $http
-                .get(`http://phish.in/api/v1/eras/${era}`)
+                .get(`https://phish.in/api/v1/eras/${era}`)
                 .then((shows) => {
                     resolve(shows);
                 });
@@ -48,7 +48,7 @@ angular.module("theNumberLine").factory("setlistFactory", function ($q, $http) {
     let getShowByYear = (year) =>{
         return $q((resolve, reject) => {
             $http
-                .get(`http://phish.in/api/v1/years/${year}`)
+                .get(`https://phish.in/api/v1/years/${year}`)
                 .then((shows) => {
                     resolve(shows);
                 })
@@ -62,7 +62,7 @@ angular.module("theNumberLine").factory("setlistFactory", function ($q, $http) {
     let getShowById = (id) => {
         return $q((resolve, reject) => {
             $http
-                .get(`http://phish.in/api/v1/shows/${id}`)
+                .get(`https://phish.in/api/v1/shows/${id}`)
                 .then((shows) => {
                     resolve(shows);
                 })

@@ -35,6 +35,37 @@ module.exports = function (grunt) {
                 files: ["./sass/**/*.scss"],
                 tasks: ["sass"]
             }
+        },
+        clean:{
+            options: {force: true },
+            public: ['../public']
+        },
+        copy: {
+            dev: {
+                files: [{
+                    expand: true,
+                    cwd: "../",
+                    src: [
+                        "index.html",
+                        "css/**/*.css",
+                        "partials/**/*.html",
+                        "node_modules/jquery/dist/jquery.min.js",
+                        "node_modules/bootstrap/dist/js/bootstrap.min.js",
+                        "node_modules/bootstrap/dist/css/bootstrap.min.css",
+                        "node_modules/popper.js/dist/popper.min.js",
+                        "node_modules/angular/angular.min.js",
+                        "node_modules/angular-route/angular-route.min.js",
+                        "node_modules/ngmap/build/scripts/ng-map.min.js",
+                        "node_modules/chart.js/dist/Chart.min.js",
+                        "node_modules/angular-chart.js/dist/angular-chart.min.js",
+                        "node_modules\angular-moment\angular-moment.min.js",
+                        "node_modules/firebase/firebase.js",
+                        "node_modules\lodash\lodash.min.js",
+                        "app/**/*.js"
+                    ],
+                    dest: "../public/"
+                }]
+            }
         }
     });
 
@@ -43,4 +74,6 @@ module.exports = function (grunt) {
         .forEach(grunt.loadNpmTasks);
 
     grunt.registerTask("default", ["jshint", "sass", "angular-builder", "watch"]);
+    grunt.registerTask('deploy', ['sass', 'copy']);
+    grunt.registerTask('cleanit', ['clean']);
 };
