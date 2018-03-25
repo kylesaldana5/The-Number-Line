@@ -16,9 +16,9 @@ This is my Front End Captsone for Nashville Software School!
 
 # Libraries and Credits
 
->Phish.in' [Phish.in' API - Docs ](http://phish.in/api-docs)
->[Phish.net](http://phish.net/)
->[Chart JS](http://www.chartjs.org/)
+- [Phish.in' API - Docs ](http://phish.in/api-docs)
+- [Phish.net](http://phish.net/)
+- [Chart JS](http://www.chartjs.org/)
 >[Google Maps](https://developers.google.com/maps/)
 >[ngLodash](https://github.com/rockabox/ng-lodash)
 >[Moment JS](https://momentjs.com/)
