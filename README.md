@@ -25,10 +25,6 @@ This is my Front End Captsone for Nashville Software School!
 
 # Try it out
 
-Vist https://the-number-line.firebaseapp.com/#!/login
-
-~ or ~
-
 fork/download repo 
 
 ```
